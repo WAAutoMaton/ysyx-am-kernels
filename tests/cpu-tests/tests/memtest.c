@@ -3,9 +3,9 @@
 typedef unsigned char uint8_t;
 
 int main() {
-  	extern char _heap_start, _heap_end;
-	int heap_start = (int)&_heap_start;
-	int heap_end = (int)&_heap_end;
+  	// extern char _heap_start, _heap_end;
+	int heap_start = (int)0x80000000;
+	int heap_end = (int)0x80000000 + 0x00000100;
 	for(uint32_t i=heap_start; i<heap_end; i+=4) {
 		volatile uint32_t* p=(volatile uint32_t*)i;
 		*p = i;
